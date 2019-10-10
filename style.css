@@ -1,0 +1,31 @@
+table,
+th,
+td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.logs {
+    display: none;
+    /* justify-content: center; */
+}
+
+.main {
+    text-align: center;
+}
+
+.filters {
+    margin: 10px;
+    display: none;
+}
