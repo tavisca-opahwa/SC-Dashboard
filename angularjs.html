@@ -3,25 +3,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="angularjs.js" type="text/javascript"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style.css">
 
 <body onload="getPresentDate()" ng-app="myApp">
 
     <div ng-controller="customersCtrl" class="main">
 
-        <select ng-options="option for option in listOfOptions" ng-model="selectedItem" ng-change="selectedItemChanged()">
-    </select>
+        <select ng-options="option for option in listOfOptions" ng-model="selectedItem" ng-change="selectedItemChanged()"></select>
 
         <div class="filters">
             <table>
                 <tr>
                     <td>
                         <select>
-              <option>All</option>
-              <option>Demp2</option>
-              <option>CapitalOne</option>
-            </select>
+                            <option>All</option>
+                            <option>Demp2</option>
+                            <option>CapitalOne</option>
+                        </select>
                     </td>
                     <td>
                         From: <input type="date" name="fromDate" max="" value="fromDate" id="fromDate" onclick="setMaxDate('fromDate')">
@@ -31,10 +30,10 @@
                     </td>
                     <td>
                         <select>
-                <option>Both</option>
-                <option>User</option>
-                <option>Agent</option>
-            </select>
+                            <option>Both</option>
+                            <option>User</option>
+                            <option>Agent</option>
+                        </select>
                     </td>
                     <td>
                         <button ng-click="generateReport()">Generate Report</button>
@@ -47,9 +46,9 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label>Search GDS Locator</label>
-                    <input type="text" ng-model="Search.GDS_Locator" class="form-control" placeholder="Search GDS Locator">
+                    <input type="text" ng-model="Search.GDS_Locator" id="input1" class="form-control" placeholder="Search GDS Locator">
                     <label>Search Super PNR</label>
-                    <input type="text" ng-model="Search.Super_PNR" class="form-control" placeholder="Search Super PNR">
+                    <input type="text" ng-model="Search.Super_PNR" id="input2" class="form-control" placeholder="Search Super PNR">
                 </div>
             </form>
             <table id="log">
@@ -57,6 +56,7 @@
                     <td>Schedule Change</td>
                     <td colspan="6">Total:{{names.length}}</td>
                 </tr>
+
                 <tr>
                     <th>GDS Locator</th>
                     <th>Super PNR</th>
@@ -67,9 +67,10 @@
                         <span class="sortorder" ng-show="propertyName === 'SC_Accepted_Date_Time'" ng-class="{reverse: reverse}"></span>
                     </th>
                     <th>Status</th>
-
                 </tr>
+
                 <tr ng-repeat="x in names|filter:Search | orderBy:propertyName:reverse">
+
                     <td>{{ x.GDS_Locator }}</td>
                     <td>{{ x.Super_PNR }}</td>
                     <td>{{ x.Client }}</td>
@@ -77,12 +78,10 @@
                     <td>{{ x.Session_ID }}</td>
                     <td>{{ x.SC_Accepted_Date_Time }}</td>
                     <td>{{ x.Status }}</td>
-
                 </tr>
             </table>
             <button>Export CSV</button>
         </div>
-
     </div>
 </body>
 

@@ -12,7 +12,7 @@ app.controller('customersCtrl', function($scope, $http) {
     $scope.generateReport = function() {
         switch (calculatedValue) {
             case 'SC':
-                $http.get('http://127.0.0.1:5500/Mock.json')
+                $http.get('http://127.0.0.1:5501/Mock.json')
                     .then(function(response) {
                         $scope.names = response.data.SC;
                         console.log($scope.names);
@@ -23,6 +23,25 @@ app.controller('customersCtrl', function($scope, $http) {
                 console.log('notfound');
         }
     }
+    $( document ).ready(function() {
+        $('#input1').on('keyup', function(e){
+            if(e.target.value.length > 0){
+              $('#input2').prop('disabled', true);
+            }else{
+              $('#input2').prop('disabled', false);
+            }
+        });
+    });
+
+    $( document ).ready(function() {
+        $('#input2').on('keyup', function(e){
+            if(e.target.value.length > 0){
+              $('#input1').prop('disabled', true);
+            }else{
+              $('#input1').prop('disabled', false);
+            }
+        });
+    });
 
     $scope.sortBy = function(propertyName) {
         $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
@@ -62,3 +81,4 @@ function setMinDate() {
     var minDate = document.getElementById("fromDate").value;
     document.getElementById("toDate").setAttribute("min", minDate);
 }
+
