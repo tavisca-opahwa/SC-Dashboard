@@ -44,7 +44,14 @@
         </div>
 
         <div class="logs">
-
+            <form class="form-inline">
+                <div class="form-group">
+                    <label>Search GDS Locator</label>
+                    <input type="text" ng-model="Search.GDS_Locator" class="form-control" placeholder="Search GDS Locator">
+                    <label>Search Super PNR</label>
+                    <input type="text" ng-model="Search.Super_PNR" class="form-control" placeholder="Search Super PNR">
+                </div>
+            </form>
             <table id="log">
                 <tr>
                     <td>Schedule Change</td>
@@ -60,7 +67,7 @@
                     <th>Status</th>
 
                 </tr>
-                <tr ng-repeat="x in names">
+                <tr ng-repeat="x in names|filter:Search">
                     <td>{{ x.GDS_Locator }}</td>
                     <td>{{ x.Super_PNR }}</td>
                     <td>{{ x.Client }}</td>
