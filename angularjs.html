@@ -63,11 +63,14 @@
                     <th>Client</th>
                     <th>User Type</th>
                     <th>Session ID</th>
-                    <th>SC Accepted Date Time</th>
+                    <th ng-click="sortBy('SC_Accepted_Date_Time')">SC Accepted Date Time
+                        <span class="sortorder" ng-show="propertyName === 'SC_Accepted_Date_Time'" ng-class="{reverse: reverse}"></span>
+                    </th>
                     <th>Status</th>
                 </tr>
 
-                <tr ng-repeat="x in names|filter:Search">
+                <tr ng-repeat="x in names|filter:Search | orderBy:propertyName:reverse">
+
                     <td>{{ x.GDS_Locator }}</td>
                     <td>{{ x.Super_PNR }}</td>
                     <td>{{ x.Client }}</td>

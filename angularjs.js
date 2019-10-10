@@ -9,7 +9,8 @@ app.controller('customersCtrl', function($scope, $http) {
         document.getElementsByClassName('filters')[0].style.display = 'block';
     }
 
-    $scope.generateReport = function() { switch (calculatedValue) {
+    $scope.generateReport = function() {
+        switch (calculatedValue) {
             case 'SC':
                 $http.get('http://127.0.0.1:5501/Mock.json')
                     .then(function(response) {
@@ -41,6 +42,12 @@ app.controller('customersCtrl', function($scope, $http) {
             }
         });
     });
+
+    $scope.sortBy = function(propertyName) {
+        $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+        $scope.propertyName = propertyName;
+    }
+
 
 });
 var getPresentDate = function() {

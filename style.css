@@ -29,3 +29,11 @@ table tr:nth-child(even) {
     margin: 10px;
     display: none;
 }
+
+.sortorder:after {
+    content: '\25b2';
+}
+
+.sortorder.reverse:after {
+    content: '\25bc';
+}
