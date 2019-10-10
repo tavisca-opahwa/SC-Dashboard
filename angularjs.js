@@ -22,6 +22,25 @@ app.controller('customersCtrl', function($scope, $http) {
                 console.log('notfound');
         }
     }
+    $( document ).ready(function() {
+        $('#input1').on('keyup', function(e){
+            if(e.target.value.length > 0){
+              $('#input2').prop('disabled', true);
+            }else{
+              $('#input2').prop('disabled', false);
+            }
+        });
+    });
+
+    $( document ).ready(function() {
+        $('#input2').on('keyup', function(e){
+            if(e.target.value.length > 0){
+              $('#input1').prop('disabled', true);
+            }else{
+              $('#input1').prop('disabled', false);
+            }
+        });
+    });
 
 });
 var getPresentDate = function() {
@@ -55,3 +74,4 @@ function setMinDate() {
     var minDate = document.getElementById("fromDate").value;
     document.getElementById("toDate").setAttribute("min", minDate);
 }
+
