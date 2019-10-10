@@ -11,7 +11,7 @@ app.controller('customersCtrl', function($scope, $http) {
 
     $scope.generateReport = function() { switch (calculatedValue) {
             case 'SC':
-                $http.get('http://127.0.0.1:5500/Mock.json')
+                $http.get('http://127.0.0.1:5501/Mock.json')
                     .then(function(response) {
                         $scope.names = response.data.SC;
                         console.log($scope.names);
