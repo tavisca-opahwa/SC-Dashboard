@@ -9,7 +9,7 @@
 <body onload="getPresentDate()" ng-app="myApp">
 
     <div ng-controller="customersCtrl" class="main">
-
+        <label>Report Type</label>
         <select ng-options="option for option in listOfOptions" ng-model="selectedItem" ng-change="selectedItemChanged()"></select>
 
         <div class="filters">
